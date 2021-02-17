@@ -11,6 +11,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> <!-- font-family: 'Source Code Pro', monospace; -->
     </head>
     <body>
+        <div id="window-datetime">
+            <div id="datetime">
+                <p id="time"></p>
+                <p id="date"></p>
+            </div>
+           <!--<p id="JS-logo">JS</p>-->
+        </div>
         <div id="registration">
             <form id="registration-form">
                 <label for="user-name" id="registration-form-label-name">Введите ваше имя</label>
@@ -21,11 +28,12 @@
         <head>
             <menu id="menu">
                 <div id="menu-block-links">
-                    <a href="" class="menu-link">Площадь треугольника</a>
-                    <a href="" class="menu-link">Строки</a>
-                    <a href="" class="menu-link">Max & Min</a>
-                    <a href="" class="menu-link">Тест</a>
-                    <a href="" class="menu-link">Дата и время</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-square">Площадь треугольника</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-strings">Строки</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-maxnmin">Max & Min</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-timer">Таймер</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-test">Тест</a>
+                    <a href="" class="menu-link" forwindow="window-pop-up-datetime">Дата и время</a>
                 </div>
                 <div id="menu-username"></div>
             </menu>
@@ -33,6 +41,254 @@
         <main>
             <h1>JavaScript</h1>
             <p></p>
+            <div id="window-pop-up-square" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Площадь треугольника</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form">
+                    <fieldset class="window-form-input">
+                        <div class="form-row">
+                            <label for="height">Высота треугольника:</label>
+                            <input type="text" name="height" id="window-form-input-height" class="window-form-input-number">
+                        </div>
+                        <div class="form-row">
+                            <label for="base">Основание треугольника:</label>
+                            <input type="text" name="base" id="window-form-input-base" class="window-form-input-number">
+                        </div>
+                        <label for="" class="window-form-answer" id="window-form-answer-number">Площадь треугольника равна: </label>
+                    </fieldset>
+                    <input type="button" value="Расчитать" id="window-form-button-square" class="window-form-button">
+                </form>
+                <p>
+                    Площадь треугольника рассчитается по формуле <i>S=1/2*h</i>
+                </p>
+            </div>
+            <div id="window-pop-up-strings" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Сравнение длин строк</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form">
+                    <fieldset class="window-form-input">
+                        <div class="form-row">
+                            <label for="string1">Первая строка: </label>
+                            <input type="text" name="string1" class="window-form-input-string">
+                        </div>
+                        <div class="form-row">
+                            <label for="string2">Вторая строка: </label>
+                            <input type="text" name="string2" class="window-form-input-string">
+                        </div>
+                        <label for="" id="window-form-answer-boolean" class="window-form-answer">Строки равны:</label>
+                    </fieldset>
+                    <input type="button" value="Сравнить" id="window-form-button-string" class="window-form-button">
+                </form>
+            </div>
+            <div id="window-pop-up-maxnmin" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Поиск максимума и минимума массива</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form">
+                    <fieldset class="window-form-input">
+                        <div class="form-row">
+                            <label for="numbers">Введите пять чисел: </label>
+                            <input type="text" class="window-form-input-small-number" name="numbers">
+                            <input type="text" class="window-form-input-small-number">
+                            <input type="text" class="window-form-input-small-number">
+                            <input type="text" class="window-form-input-small-number">
+                            <input type="text" class="window-form-input-small-number">
+                        </div>
+                        <label for="" class="window-form-answer" id="window-form-answer-max">Максимум: </label>
+                        <label for="" class="window-form-answer" id="window-form-answer-min">Минимум: </label>
+                    </fieldset>
+                    <input type="button" value="Найти" class="window-form-button" id="window-form-button-maxnmin">
+                </form>
+            </div>
+            <div id="window-pop-up-timer" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Таймер</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form">
+                    <p id="window-form-time" active="false">00:00:00</p>
+                    <div class="form-block">
+                        <input type="button" value="Начать заново" class="window-form-button" id="window-form-button-start">
+                        <input type="button" value="Продолжить" class="window-form-button" id="window-form-button-continue">
+                        <input type="button" value="Остановаить" class="window-form-button" id="window-form-button-stop">
+                    </div>
+                </form>
+            </div>
+            <div id="window-pop-up-test" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Тест</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form" id="window-form-test">
+                    <div class="form-block" id="window-form-question1">
+                        <p for="" class="window-form-question">Что такое поднятие переменных(hosting)?</p>
+                        <div class="form-row">
+                            <input type="radio" name="question1" class="window-form-radio1" var="0">
+                            <label for="question1">Объявление глобальных переменных.</label>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question1" class="window-form-radio1" var="1">
+                            <label for="question1">Премещение переменных вверх своей области видимости перед тем, как код будет выполнен.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question1" class="window-form-radio1" var="2">
+                            <label for="question1">Так называется инициализация переменных в интерпретируемых языках.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question1" class="window-form-radio1" var="3">
+                            <label for="question1">Создание объектов.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block" id="window-form-question2">
+                        <p class="window-form-question">Каким будет значение выражения <i>1 === "1"</i> ?</p>
+                        <div class="form-row">
+                            <input type="radio" name="question2" class="window-form-radio2" var="0">
+                            <label for="question2">true</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question2" class="window-form-radio2" var="1">
+                            <label for="question2">false</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block" id="window-form-question3">
+                        <p class="window-form-question">Результатом выражения <i>"1" + "1"</i> будет: </p>
+                        <div class="form-row">
+                            <input type="radio" name="question3" class="window-form-radio3" var="0">
+                            <label for="question3">NaN</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question3" class="window-form-radio3" var="1">
+                            <label for="question3">2</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question3" class="window-form-radio3" var="2">
+                            <label for="question3">11</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question3" class="window-form-radio3" var="3">
+                            <label for="question3">"11"</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block" id="window-form-question4">
+                        <p class="window-form-question">Что представляет объект <i>document</i>?</p>
+                        <div class="form-row">
+                            <input type="radio" name="question4" class="window-form-radio4" var="0">
+                            <label for="question4">Это объект веб-страницы.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question4" class="window-form-radio4" var="1">
+                            <label for="question4">Такого объекта не существует.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question4" class="window-form-radio4" var="2">
+                            <label for="question4">Этот объект отвечает за загруженные браузером файлы.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question4" class="window-form-radio4" var="3">
+                            <label for="question4">Этот объект используется для доступа к локальному хранилищу.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block" id="window-form-question5">
+                        <p class="window-form-question">Что такое всплытие события?</p>
+                        <div class="form-row">
+                            <input type="radio" name="question5" class="window-form-radio5" var="0">
+                            <label for="question5">Процесс возниковения события.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question5" class="window-form-radio5" var="1">
+                            <label for="question5">Процесс срабатывания обработчиков события на текущем элементе и далее выше по цепочке предков.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question5" class="window-form-radio5" var="2">
+                            <label for="question5">Процесс срабатывания обработчкиов события на элементе window и далее вниз до текущего.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question5" class="window-form-radio5" var="3">
+                            <label for="question5">Процесс перехвата события обработчиком.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block" id="window-form-question6">
+                        <p class="window-form-question">Что представляет ключевое слово <i>this</i>?</p>
+                        <div class="form-row">
+                            <input type="radio" name="question6" class="window-form-radio6" var="0">
+                            <label for="question6">Это ссылка на значение текущего объекта, который выполняет или вызывает функцию.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question6" class="window-form-radio6" var="1">
+                            <label for="question6">Это объект текущей страницы браузера.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question6" class="window-form-radio6" var="2">
+                            <label for="question6">Указание на использование конкретной переменной.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                        <div class="form-row">
+                            <input type="radio" name="question6" class="window-form-radio6" var="3">
+                            <label for="question6">Указывает браузеру страницу, на которую необходимо перейти.</label>
+                            <b class="window-form-question-checker"></b>
+                        </div>
+                    </div>
+                    <div class="form-block">
+                        <p id="window-form-warning"><b style="color:red">Пожалуйста, заполните все вопросы!</b></p>
+                        <div class="form-row">
+                            <input type="button" value="Предыдуший" class="window-form-button" id="window-form-button-prev">
+                            <input type="button" value="Следующий" class="window-form-button" id="window-form-button-next">
+                        </div>
+                    </div>
+                    <input type="button" value="Проверить" class="window-form-button" id="window-form-button-test">
+                </form>
+            </div>
+            <div id="window-pop-up-datetime" class="window-pop-up">
+                <div class="window-hader">
+                    <h2 class=window-hader-title>Дата время</h2>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                    </svg>
+                </div>
+                <form action="" class="window-form">
+                    <input type="button" value="Посмотреть дату и время" class="window-form-button" id="window-form-button-datetime">
+                </form>
+            </div>
         </main>
     </body>
     <script src="script/script.js"></script>
