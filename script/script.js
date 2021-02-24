@@ -60,7 +60,7 @@ function clickWindowCross(event) {
 }
 
 function clickMenuLink(event) {
-    document.getElementById(event.target.getAttribute("forwindow")).style.display="block";
+    document.getElementById(event.target.getAttribute("forwindow")).style.display="flex";
     event.preventDefault();
 }
 
@@ -180,19 +180,37 @@ function clickButtonWindowTestCheck() {
 }
 
 function clickWindowDateTime(event) {
-    event.currentTarget.style.display = "none";
+    let anim = event.currentTarget.animate(
+        [{ opacity: 100 },
+        { opacity: 0 }],
+        {
+            duration: 1000,
+            easing: "linear"
+        }
+    );
+    let time = setTimeout(() => {document.getElementById("window-datetime").style.display = "none";}, 1000);
 }
 
 function clickButtonWindowDateTime() {
     document.getElementById("window-datetime").style.display = "flex";
+    document.getElementById("window-datetime").animate(
+        [{ opacity: 0 },
+         { opacity: 100 }
+        ],
+        {
+            duration: 1000,
+            easing: "linear"
+        }
+    );
 }
 
 function updateTimer() {
     let timer = document.getElementById("window-form-time");
-    if (document.getElementById("window-pop-up-timer").style.display == "block" && timer.getAttribute("active") == "true") {
+    if (document.getElementById("window-pop-up-timer").style.display == "flex" && timer.getAttribute("active") == "true") {
         let startTime = timer.getAttribute("start-time");
         timer.innerHTML = millisecondsToHMS(new Date().getTime() - startTime);
     }
+    
 }
 
 function updateDate() {
