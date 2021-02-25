@@ -3,7 +3,10 @@ function initPage() {
         console.log("login saccessful");
         document.getElementById("registration").style.display = "none";
         document.getElementById("menu-username").innerText = localStorage.getItem("userName");
+        document.getElementById("menu").style.visibility = "visible";
+        console.log(document.getElementById("menu"));
     }
+    document.getElementById("registration-form").onsubmit = clickButtonRegistration;
     let buttonRegistation = document.getElementById("registration-form-button");
     buttonRegistation.onclick = clickButtonRegistration;
     Array.prototype.slice.call(document.getElementsByClassName("menu-link")).forEach(element => {
@@ -35,13 +38,17 @@ function clickButtonRegistration() {
     localStorage.setItem("userName", inputName.value);
     document.getElementById("registration").style.display = "none";
     document.getElementById("menu-username").innerText = localStorage.getItem("userName");
+    document.getElementById("menu").style.visibility = "visible";
 }
 
 function clickButtonWindowSquare() {
     let height = document.getElementById("window-form-input-height");
     let base = document.getElementById("window-form-input-base");
     let answer = document.getElementById("window-form-answer-number");
-    answer.innerHTML = "Площадь треугольника равна: " + base.value * height.value / 2;
+    if (base.value.match("^[ 0-9]+$") && height.value.match("^[ 0-9]+$"))
+        answer.innerHTML = "Площадь треугольника равна: " + base.value * height.value / 2;
+    else
+        answer.innerHTML = "Введены неверные данные!";
 }
 
 function clickButtonWindowString() {
@@ -59,13 +66,24 @@ function clickWindowCross(event) {
     event.currentTarget.parentNode.parentNode.style.display = "none";
 }
 
+let maxzIndex = 0;
+
 function clickMenuLink(event) {
-    document.getElementById(event.target.getAttribute("forwindow")).style.display="flex";
+    let wnd = document.getElementById(event.target.getAttribute("forwindow"));
+    wnd.style.display="flex";
+    wnd.style.zIndex = maxzIndex++;
     event.preventDefault();
 }
 
 function clickButtonWindowMaxnMin() {
     let array = Array.prototype.slice.call(document.getElementsByClassName("window-form-input-small-number"));
+    for (let el of array) {
+        if (!el.value.match("^[ 0-9]+$")) {
+            document.getElementById("window-form-answer-max").innerHTML = "Введены неверные данные!";
+            document.getElementById("window-form-answer-min").innerHTML = "";
+            return;
+        }
+    }
     let max, min;
     max = min = (Number)(array[0].value);
     for (let inp of array) {
@@ -188,11 +206,12 @@ function clickWindowDateTime(event) {
             easing: "linear"
         }
     );
-    let time = setTimeout(() => {document.getElementById("window-datetime").style.display = "none";}, 1000);
+    let time = setTimeout(() => {document.getElementById("window-datetime").style.display = "none";document.getElementById("window-datetime").style.zIndex = 0;}, 1000);
 }
 
 function clickButtonWindowDateTime() {
     document.getElementById("window-datetime").style.display = "flex";
+    document.getElementById("window-datetime").style.zIndex = maxzIndex++;
     document.getElementById("window-datetime").animate(
         [{ opacity: 0 },
          { opacity: 100 }

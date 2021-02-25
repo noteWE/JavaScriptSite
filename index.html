@@ -38,395 +38,469 @@
                 <div id="menu-username"></div>
             </menu>
         </head>
+        <div id="window-pop-up-square" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Площадь треугольника</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <form action="" class="window-form">
+                <fieldset class="window-form-input">
+                    <div class="form-row">
+                        <label for="height">Высота треугольника:</label>
+                        <input type="text" name="height" id="window-form-input-height" class="window-form-input-number" pattern="^[ 0-9]+$">
+                    </div>
+                    <div class="form-row">
+                        <label for="base">Основание треугольника:</label>
+                        <input type="text" name="base" id="window-form-input-base" class="window-form-input-number" pattern="^[ 0-9]+$">
+                    </div>
+                    <label for="" class="window-form-answer" id="window-form-answer-number">Площадь треугольника равна: </label>
+                </fieldset>
+                <input type="button" value="Расчитать" id="window-form-button-square" class="window-form-button">
+            </form>
+            <div class="window-information">
+                <p>
+                    Площадь треугольника рассчитается по формуле <i>S=1/2*h*b</i>, где h - высота треугольника и b - основание
+                    треугольника.
+                    Для выполнения этого задания нам нужно было считать введенные данные из полей формы, и по нажатию кнопки сделать
+                    вывод в строку для ответа.
+                    <br>
+                    <br>
+                </p>
+                <p>
+                    Для решения этой задачи в JS будем использовать следующий функционал.
+                    <code>
+                        let element = document.getElemtById("id html элемента"); // для получения элементов input
+                        <br>
+                        // Метод возвращает ссылку на объект типа Element или null, если объект не найден.
+                    </code>
+                    <code>
+                        let val = element.value; // так можно обратиться к полю value объекта
+                        <br>
+                        element.innerHTML = "Hello World!"; // так можно обратиться к полю HTML содержимого объекта
+                    </code>
+                    <code>
+                        element.onclick = functionRef; // так можно назначить объекту обработчик события click
+                    </code>
+                </p>
+            </div>
+        </div>
+        <div id="window-pop-up-strings" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Сравнение длин строк</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <form action="" class="window-form">
+                <fieldset class="window-form-input">
+                    <div class="form-row">
+                        <label for="string1">Первая строка: </label>
+                        <input type="text" name="string1" class="window-form-input-string">
+                    </div>
+                    <div class="form-row">
+                        <label for="string2">Вторая строка: </label>
+                        <input type="text" name="string2" class="window-form-input-string">
+                    </div>
+                    <label for="" id="window-form-answer-boolean" class="window-form-answer">Строки равны:</label>
+                </fieldset>
+                <input type="button" value="Сравнить" id="window-form-button-string" class="window-form-button">
+            </form>
+            <div class="window-information">
+                <p>
+                    В этом задании мы будем использовать конструкции из первого.
+                    Обращение к полям element.onclick, element.value, element.innerHTML.
+                    <code>
+                        let elemets = document.getElementsByClassName(); // метод позволяет получить коллекцию HTMLCollection
+                    </code>
+                    Этот метод мы используем для получения объектов элементов input.
+                    <code>
+                        if (str1.length == str2.length) {
+                            // действие 1
+                        } else {
+                            // действие 2
+                        }
+                    </code>
+                    Так мы сравним длины строк и определим что нужно вывести на страницу.
+                </p>
+            </div>
+        </div>
+        <div id="window-pop-up-maxnmin" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Поиск максимума и минимума массива</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <form action="" class="window-form">
+                <fieldset class="window-form-input">
+                    <div class="form-row">
+                        <label for="numbers">Введите пять чисел: </label>
+                        <input type="text" class="window-form-input-small-number" name="numbers" pattern="^[ 0-9]+$">
+                        <input type="text" class="window-form-input-small-number" pattern="^[ 0-9]+$">
+                        <input type="text" class="window-form-input-small-number" pattern="^[ 0-9]+$">
+                        <input type="text" class="window-form-input-small-number" pattern="^[ 0-9]+$">
+                        <input type="text" class="window-form-input-small-number" pattern="^[ 0-9]+$">
+                    </div>
+                    <label for="" class="window-form-answer" id="window-form-answer-max">Максимум: </label>
+                    <label for="" class="window-form-answer" id="window-form-answer-min">Минимум: </label>
+                </fieldset>
+                <input type="button" value="Найти" class="window-form-button" id="window-form-button-maxnmin">
+            </form>
+            <div class="window-information">
+                <p>
+                    В этом задании мы будем использовать конструкции из первого и второго заданий.
+                    <code>
+                        let elemets = document.getElementsByClassName();
+                    </code>
+                    Так мы получим массив элементов input.
+                    <code>
+                        for (let el of Array.prototype.slice.call(elemets)) {
+                            <br>
+                            if (Number(el) > max) {
+                                max = Number(el);
+                            }
+                            <br>
+                            if (Number(el) < min) {
+                                min = Number(el);
+                            }
+                            <br>
+                        }
+                    </code>
+                    Array.prototype.slice.call(elemets) эта конструкция позволяет привести коллекцию к массиву.
+                    Здесь приставлен обычный алгоритм поиска минимума и максимума массива.
+                </p>
+            </div>
+        </div>
+        <div id="window-pop-up-timer" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Таймер</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <div class="form-row">
+                <form action="" class="window-form">
+                    <p id="window-form-time" active="false">00:00:00</p>
+                    <div class="form-block">
+                        <input type="button" value="Начать заново" class="window-form-button" id="window-form-button-start">
+                        <input type="button" value="Продолжить" class="window-form-button" id="window-form-button-continue">
+                        <input type="button" value="Остановаить" class="window-form-button" id="window-form-button-stop">
+                    </div>
+                </form>
+                <div class="window-information">
+                    <p>
+                        Через JS мы можем устанавливать атрибуты html элементам.
+                        <code>
+                            element.setAttribute(key, value); // так мы можем устанавливить атрибут
+                            element.getAttribute(key, value); // так мы можем считать значение атрибута
+                        </code>
+                        Для таймера мы будем использовать метод Window.
+                        <code>
+                            setInterval(func, delay); // так мы можем сказать JS запускать функцию каждый раз по прошествию задержки.
+                        </code>
+                        Для работы с датой и временем в JS можно использовать экземпляр объекта Date.
+                        <code>
+                            new Date().getTime // Возвращает числовое значение указанной даты как количество миллисекунд, прошедших с 1 января 1970 года 00:00:00
+                        </code>
+                        Мы будем сохранять в атрибуты время старта, а в функции обновления будем преобразовывать к формату чч:мм:сс
+                        разность стартового времени и времени в данный момент.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="window-pop-up-test" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Тест</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <div class="horizontal">
+                <form action="" class="window-form" id="window-form-test">
+                    <div id="window-form-question-block">
+                        <div class="form-block" id="window-form-question1">
+                            <p for="" class="window-form-question">Что такое поднятие переменных(hosting)?</p>
+                            <div class="form-row">
+                                <input type="radio" name="question1" class="window-form-radio1" var="0">
+                                <label for="question1">Объявление глобальных переменных.</label>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question1" class="window-form-radio1" var="1">
+                                <label for="question1">Премещение переменных вверх своей области видимости перед тем, как код будет выполнен.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question1" class="window-form-radio1" var="2">
+                                <label for="question1">Так называется инициализация переменных в интерпретируемых языках.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question1" class="window-form-radio1" var="3">
+                                <label for="question1">Создание объектов.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-question2">
+                            <p class="window-form-question">Каким будет значение выражения <i>1 === "1"</i> ?</p>
+                            <div class="form-row">
+                                <input type="radio" name="question2" class="window-form-radio2" var="0">
+                                <label for="question2">true</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question2" class="window-form-radio2" var="1">
+                                <label for="question2">false</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-question3">
+                            <p class="window-form-question">Результатом выражения <i>"1" + "1"</i> будет: </p>
+                            <div class="form-row">
+                                <input type="radio" name="question3" class="window-form-radio3" var="0">
+                                <label for="question3">NaN</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question3" class="window-form-radio3" var="1">
+                                <label for="question3">2</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question3" class="window-form-radio3" var="2">
+                                <label for="question3">11</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question3" class="window-form-radio3" var="3">
+                                <label for="question3">"11"</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-question4">
+                            <p class="window-form-question">Что представляет объект <i>document</i>?</p>
+                            <div class="form-row">
+                                <input type="radio" name="question4" class="window-form-radio4" var="0">
+                                <label for="question4">Это объект веб-страницы.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question4" class="window-form-radio4" var="1">
+                                <label for="question4">Такого объекта не существует.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question4" class="window-form-radio4" var="2">
+                                <label for="question4">Этот объект отвечает за загруженные браузером файлы.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question4" class="window-form-radio4" var="3">
+                                <label for="question4">Этот объект используется для доступа к локальному хранилищу.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-question5">
+                            <p class="window-form-question">Что такое всплытие события?</p>
+                            <div class="form-row">
+                                <input type="radio" name="question5" class="window-form-radio5" var="0">
+                                <label for="question5">Процесс возниковения события.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question5" class="window-form-radio5" var="1">
+                                <label for="question5">Процесс срабатывания обработчиков события на текущем элементе и далее выше по цепочке предков.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question5" class="window-form-radio5" var="2">
+                                <label for="question5">Процесс срабатывания обработчкиов события на элементе window и далее вниз до текущего.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question5" class="window-form-radio5" var="3">
+                                <label for="question5">Процесс перехвата события обработчиком.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-question6">
+                            <p class="window-form-question">Что представляет ключевое слово <i>this</i>?</p>
+                            <div class="form-row">
+                                <input type="radio" name="question6" class="window-form-radio6" var="0">
+                                <label for="question6">Это ссылка на значение текущего объекта, который выполняет или вызывает функцию.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question6" class="window-form-radio6" var="1">
+                                <label for="question6">Это объект текущей страницы браузера.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question6" class="window-form-radio6" var="2">
+                                <label for="question6">Указание на использование конкретной переменной.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                            <div class="form-row">
+                                <input type="radio" name="question6" class="window-form-radio6" var="3">
+                                <label for="question6">Указывает браузеру страницу, на которую необходимо перейти.</label>
+                                <b class="window-form-question-checker"></b>
+                            </div>
+                        </div>
+                        <div class="form-block" id="window-form-toggle-buttons">
+                            <p id="window-form-warning"><b style="color:red">Пожалуйста, заполните все вопросы!</b></p>
+                            <div class="form-row">
+                                <input type="button" value="Предыдуший" class="window-form-button" id="window-form-button-prev">
+                                <input type="button" value="Следующий" class="window-form-button" id="window-form-button-next">
+                            </div>
+                        </div>
+                    </div>
+                <input type="button" value="Проверить" class="window-form-button" id="window-form-button-test">
+                </form>
+                <div class="window-information" id="window-information-half">
+                    <p>
+                        Каждая группа радиокнопок будет иметь свой класс соответствующий вопросу.
+                        <code>
+                            document.getElementsByClassName(className); // так мы можем найти каждую группу кнопок определенного вопроса
+                        </code>
+                        Проверяем каждую группу на то, что выбран ответ. Если ответ не выбран, тон не проверяя дальше можем вывести пользователю предупреждение.
+                        Когда каждый вопрос будет отмечен, в каждой группе будет сравнен выбранный ответ пользователя и верный ответ.
+                        <code>
+                            if (radioButton.checked) {
+                                <br>
+                                if (radioButton.getAttribute("var") == answers[i]) { // набор действий }
+                                <br>
+                                else { // набор действий }
+                                <br>
+                            }
+                        </code>
+                        У каждой кнопки есть аттрибут представляющий её номер.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="window-pop-up-datetime" class="window-pop-up">
+            <div class="window-hader">
+                <h2 class=window-hader-title>Дата время</h2>
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
+                    <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
+                    <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
+                </svg>
+            </div>
+            <form action="" class="window-form">
+                <input type="button" value="Посмотреть дату и время" class="window-form-button" id="window-form-button-datetime">
+            </form>
+            <div class="window-information">
+                <p>
+                    В этом задании нужно сделать всплывающие окно с датой и временем. По нажатию на кнопку, окно станет видимым, и проиграется анимация
+                    после нажатия уже по самому окну, проигрывается анимация исчезновения, и оно закрывается.
+                    <code>
+                        document.getElementById(element).addEventListener("click", function, false); // так мы добавим обработчик события на элемент.
+                    </code>
+                    В самой функции вызываемой обработчиком события будем использовать следующие конструкции.
+                    <code>
+                        event.currentTarget // так мы у объекта события можем взять ссылку на объект на котором это событие было захвачено обработчиком.
+                        <br>
+                        element.animate(keyframes, options); // так объекту можна назначить анимацию и тут же её проиграть.
+                    </code>
+                    Такие параметры мы передадим
+                    <code>
+                        element.animate([{ opacity: 100 },
+                    { opacity: 0 }],
+                    {
+                        duration: 1000,
+                        easing: "linear"
+                    })
+                    </code> в нашем примере.
+                    А для того чтобы после завершения анимации, окно стало снова невидимым, используем следующую конструкцию:
+                    <code>
+                        setTimeout(() => {document.getElementById(elementId).style.display = "none";}, 1000);
+                    </code>
+                </p>
+            </div>
+        </div>
         <main>
-            <h1>JavaScript</h1>
-            <p></p>
-            <div id="window-pop-up-square" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Площадь треугольника</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <form action="" class="window-form">
-                    <fieldset class="window-form-input">
-                        <div class="form-row">
-                            <label for="height">Высота треугольника:</label>
-                            <input type="text" name="height" id="window-form-input-height" class="window-form-input-number">
-                        </div>
-                        <div class="form-row">
-                            <label for="base">Основание треугольника:</label>
-                            <input type="text" name="base" id="window-form-input-base" class="window-form-input-number">
-                        </div>
-                        <label for="" class="window-form-answer" id="window-form-answer-number">Площадь треугольника равна: </label>
-                    </fieldset>
-                    <input type="button" value="Расчитать" id="window-form-button-square" class="window-form-button">
-                </form>
-                <div class="window-information">
-                    <p>
-                        Площадь треугольника рассчитается по формуле <i>S=1/2*h*b</i>, где h - высота треугольника и b - основание
-                        треугольника.
-                        Для выполнения этого задания нам нужно было считать введенные данные из полей формы, и по нажатию кнопки сделать
-                        вывод в строку для ответа.
-                        <br>
-                        <br>
-                    </p>
-                    <p>
-                        Для решения этой задачи в JS будем использовать следующий функционал.
-                        <code>
-                            let element = document.getElemtById("id html элемента"); // для получения элементов input
-                            <br>
-                            // Метод возвращает ссылку на объект типа Element или null, если объект не найден.
-                        </code>
-                        <code>
-                            let val = element.value; // так можно обратиться к полю value объекта
-                            <br>
-                            element.innerHTML = "Hello World!"; // так можно обратиться к полю HTML содержимого объекта
-                        </code>
-                        <code>
-                            element.onclick = functionRef; // так можно назначить объекту обработчик события click
-                        </code>
-                    </p>
-                </div>
+            <header class="main-header">JavaScript</header>
+            <div class="main-block-text">
+                <h2>Об истоках JavaScript</h2>
+                <p>
+                    Язык JavaScript задумывался как инструмент способный «сделать веб-страницы живыми».
+                    Самая первая реализация JavaScript была создана Бренданом Эйхом в компании Netscape,
+                    компании, которая занималась разработкой одного из первых браузеров Netscape Navigator.
+                </p>
+                <h2>Особенности языка</h2>
+                <p>
+                    Программы на этом языке называются скриптами. Они могут встраиваться в HTML и выполняться автоматически при загрузке веб-страницы.
+                    Скрипты распространяются и выполняются, как простой текст. Им не нужна специальная подготовка или компиляция для запуска.
+                    Этот язык можно встретить буквально повсюду. Он поддерживается на всех операционных системах, во всех видах браузеров,
+                    и на настольных компьютерах, и на мобильных устройствах.
+                    Очень важно ещё и то, что JavaScript-приложения работают без установки их на компьютеры пользователей.
+                </p>
+                <p>
+                    Сегодня JavaScript может выполняться не только в браузере, но и на сервере или на любом другом устройстве,
+                    которое имеет специальную программу, называющуюся «движком» JavaScript.
+                    У браузера есть собственный движок, который иногда называют «виртуальная машина JavaScript».
+                    Современный JavaScript – это «безопасный» язык программирования.
+                    Он не предоставляет низкоуровневый доступ ни к одному из ресурсов компьютера.
+                </p>
+                <p>
+                    JavaScript печально известен отсутствием полной поддержки объектно-ориентированного программирования.
+                    На самом деле, JavaScript-разработчики традиционно обходят этот недостаток.
+                </p>
+                <h2>Что может JavaScript в браузере</h2>
+                <ul>
+                    <li>Добавлять новый HTML-код на страницу, изменять существующее содержимое, модифицировать стили.</li>
+                    <li>Реагировать на действия пользователя, щелчки мыши, перемещения указателя, нажатия клавиш.</li>
+                    <li>Отправлять сетевые запросы на удалённые сервера, скачивать и загружать файлы (технологии AJAX и COMET).</li>
+                    <li>Получать и устанавливать куки, задавать вопросы посетителю, показывать сообщения.</li>
+                    <li>Запоминать данные на стороне клиента («local storage»).</li>
+                </ul>
+                <h2>Что не может JavaScript</h2>
+                <ul>
+                    <li>JavaScript на веб-странице не может читать/записывать произвольные файлы на жёстком диске,
+                        копировать их или запускать программы. Он не имеет прямого доступа к системным функциям ОС.</li>
+                    <li>Различные окна/вкладки не знают друг о друге. Иногда одно окно, используя JavaScript, открывает другое окно.
+                        Но даже в этом случае JavaScript с одной страницы не имеет доступа к другой,
+                        если они пришли с разных сайтов.</li>
+                    <li>JavaScript может легко взаимодействовать с сервером, с которого пришла текущая страница.
+                        Но его способность получать данные с других сайтов/доменов ограничена.</li>
+                </ul>
+                <p>
+                    К этому можно добавить, что возможности JavaScript сильно зависят от окружения, в котором он работает.
+                    Например, Node.JS поддерживает функции чтения/записи произвольных файлов, выполнения сетевых запросов и т.д.
+                </p>
+                <h2>Какой потенциал у JavaScript как у технологии?</h2>
+                <p>
+                    Сегодня сложно переоценить роль JavaScript в вебе. Согласно статистике w3techs, сегодня свыше 97% сайтов применяют JS.
+                    Оставшиеся 3% - это преимущественно сайты визитки и одностраничники.
+                    Невероятная популярность языка делает его одним из самых желанных для изучения и выгодных в плане дальнейшего трудоустройства.
+                </p>
+                <p>
+                    Многое из того, что раньше называли фантастикой, сегодня успешно реализуется в JavaScript. Это особенно наглядно видно в популярном направлении программирования под IoT (интернет вещей).
+                    Таким образом JS можно успешно применять для разработки программ под все существующие умные устройства, поддерживающие работу с интернетом.
+                    Сегодня JS встречается практически везде, куда только добралось IT.
+                </p>
+                <h2>Как начать?</h2>
+                <p>
+                    Чтобы начать програмировать на JavaScript вам не нужно никаких специальных средств. Достаточно будет иметь текстовый редактор и браузер.
+                    Вам подойдет любой функциональный редактор такой как Atom, Visual Studio Code или даже Notepad++. Я бы посоветовал Visual Studio Code,
+                    так как это проект с открытым исходным кодом, у него есть огромная библиотека расширений на любой вкус и даже для других языков.
+                </p>
+                <h2>Заключение</h2>
+                <p>
+                    JavaScript — это язык программирования, который оживляет сайт.
+                    В отличие от HTML (который определяет контент) и CSS (который задаёт стили)
+                    и в отличие от PHP (который является языком стороны сервера), он запускается на стороне устройств посетителей.
+                    JavaScript входит в число самых популярных и востребованных языков программирования.
+                    Он будет легок в освоении для новичков. У этого языка много перспектив развития в будущем.
+                </p>
             </div>
-            <div id="window-pop-up-strings" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Сравнение длин строк</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <form action="" class="window-form">
-                    <fieldset class="window-form-input">
-                        <div class="form-row">
-                            <label for="string1">Первая строка: </label>
-                            <input type="text" name="string1" class="window-form-input-string">
-                        </div>
-                        <div class="form-row">
-                            <label for="string2">Вторая строка: </label>
-                            <input type="text" name="string2" class="window-form-input-string">
-                        </div>
-                        <label for="" id="window-form-answer-boolean" class="window-form-answer">Строки равны:</label>
-                    </fieldset>
-                    <input type="button" value="Сравнить" id="window-form-button-string" class="window-form-button">
-                </form>
-                <div class="window-information">
-                    <p>
-                        В этом задании мы будем использовать конструкции из первого.
-                        Обращение к полям element.onclick, element.value, element.innerHTML.
-                        <code>
-                            let elemets = document.getElementsByClassName(); // метод позволяет получить коллекцию HTMLCollection
-                        </code>
-                        Этот метод мы используем для получения объектов элементов input.
-                        <code>
-                            if (str1.length == str2.length) {
-                                // действие 1
-                            } else {
-                                // действие 2
-                            }
-                        </code>
-                        Так мы сравним длины строк и определим что нужно вывести на страницу.
-                    </p>
-                </div>
-            </div>
-            <div id="window-pop-up-maxnmin" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Поиск максимума и минимума массива</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <form action="" class="window-form">
-                    <fieldset class="window-form-input">
-                        <div class="form-row">
-                            <label for="numbers">Введите пять чисел: </label>
-                            <input type="text" class="window-form-input-small-number" name="numbers">
-                            <input type="text" class="window-form-input-small-number">
-                            <input type="text" class="window-form-input-small-number">
-                            <input type="text" class="window-form-input-small-number">
-                            <input type="text" class="window-form-input-small-number">
-                        </div>
-                        <label for="" class="window-form-answer" id="window-form-answer-max">Максимум: </label>
-                        <label for="" class="window-form-answer" id="window-form-answer-min">Минимум: </label>
-                    </fieldset>
-                    <input type="button" value="Найти" class="window-form-button" id="window-form-button-maxnmin">
-                </form>
-                <div class="window-information">
-                    <p>
-                        В этом задании мы будем использовать конструкции из первого и второго заданий.
-                        <code>
-                            let elemets = document.getElementsByClassName();
-                        </code>
-                        Так мы получим массив элементов input.
-                        <code>
-                            for (let el of Array.prototype.slice.call(elemets)) {
-                                <br>
-                                if (Number(el) > max) {
-                                    max = Number(el);
-                                }
-                                <br>
-                                if (Number(el) < min) {
-                                    min = Number(el);
-                                }
-                                <br>
-                            }
-                        </code>
-                        Array.prototype.slice.call(elemets) эта конструкция позволяет привести коллекцию к массиву.
-                        Здесь приставлен обычный алгоритм поиска минимума и максимума массива.
-                    </p>
-                </div>
-            </div>
-            <div id="window-pop-up-timer" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Таймер</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <div class="form-row">
-                    <form action="" class="window-form">
-                        <p id="window-form-time" active="false">00:00:00</p>
-                        <div class="form-block">
-                            <input type="button" value="Начать заново" class="window-form-button" id="window-form-button-start">
-                            <input type="button" value="Продолжить" class="window-form-button" id="window-form-button-continue">
-                            <input type="button" value="Остановаить" class="window-form-button" id="window-form-button-stop">
-                        </div>
-                    </form>
-                    <div class="window-information">
-                        <p>
-                            Через JS мы можем устанавливать атрибуты html элементам.
-                            <code>
-                                element.setAttribute(key, value); // так мы можем устанавливить атрибут
-                                element.getAttribute(key, value); // так мы можем считать значение атрибута
-                            </code>
-                            Для таймера мы будем использовать метод Window.
-                            <code>
-                                setInterval(func, delay); // так мы можем сказать JS запускать функцию каждый раз по прошествию задержки.
-                            </code>
-                            Для работы с датой и временем в JS можно использовать экземпляр объекта Date.
-                            <code>
-                                new Date().getTime // Возвращает числовое значение указанной даты как количество миллисекунд, прошедших с 1 января 1970 года 00:00:00
-                            </code>
-                            Мы будем сохранять в атрибуты время старта, а в функции обновления будем преобразовывать к формату чч:мм:сс
-                            разность стартового времени и времени в данный момент.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="window-pop-up-test" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Тест</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <div class="horizontal">
-                    <form action="" class="window-form" id="window-form-test">
-                        <div id="window-form-question-block">
-                            <div class="form-block" id="window-form-question1">
-                                <p for="" class="window-form-question">Что такое поднятие переменных(hosting)?</p>
-                                <div class="form-row">
-                                    <input type="radio" name="question1" class="window-form-radio1" var="0">
-                                    <label for="question1">Объявление глобальных переменных.</label>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question1" class="window-form-radio1" var="1">
-                                    <label for="question1">Премещение переменных вверх своей области видимости перед тем, как код будет выполнен.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question1" class="window-form-radio1" var="2">
-                                    <label for="question1">Так называется инициализация переменных в интерпретируемых языках.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question1" class="window-form-radio1" var="3">
-                                    <label for="question1">Создание объектов.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-question2">
-                                <p class="window-form-question">Каким будет значение выражения <i>1 === "1"</i> ?</p>
-                                <div class="form-row">
-                                    <input type="radio" name="question2" class="window-form-radio2" var="0">
-                                    <label for="question2">true</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question2" class="window-form-radio2" var="1">
-                                    <label for="question2">false</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-question3">
-                                <p class="window-form-question">Результатом выражения <i>"1" + "1"</i> будет: </p>
-                                <div class="form-row">
-                                    <input type="radio" name="question3" class="window-form-radio3" var="0">
-                                    <label for="question3">NaN</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question3" class="window-form-radio3" var="1">
-                                    <label for="question3">2</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question3" class="window-form-radio3" var="2">
-                                    <label for="question3">11</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question3" class="window-form-radio3" var="3">
-                                    <label for="question3">"11"</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-question4">
-                                <p class="window-form-question">Что представляет объект <i>document</i>?</p>
-                                <div class="form-row">
-                                    <input type="radio" name="question4" class="window-form-radio4" var="0">
-                                    <label for="question4">Это объект веб-страницы.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question4" class="window-form-radio4" var="1">
-                                    <label for="question4">Такого объекта не существует.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question4" class="window-form-radio4" var="2">
-                                    <label for="question4">Этот объект отвечает за загруженные браузером файлы.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question4" class="window-form-radio4" var="3">
-                                    <label for="question4">Этот объект используется для доступа к локальному хранилищу.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-question5">
-                                <p class="window-form-question">Что такое всплытие события?</p>
-                                <div class="form-row">
-                                    <input type="radio" name="question5" class="window-form-radio5" var="0">
-                                    <label for="question5">Процесс возниковения события.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question5" class="window-form-radio5" var="1">
-                                    <label for="question5">Процесс срабатывания обработчиков события на текущем элементе и далее выше по цепочке предков.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question5" class="window-form-radio5" var="2">
-                                    <label for="question5">Процесс срабатывания обработчкиов события на элементе window и далее вниз до текущего.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question5" class="window-form-radio5" var="3">
-                                    <label for="question5">Процесс перехвата события обработчиком.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-question6">
-                                <p class="window-form-question">Что представляет ключевое слово <i>this</i>?</p>
-                                <div class="form-row">
-                                    <input type="radio" name="question6" class="window-form-radio6" var="0">
-                                    <label for="question6">Это ссылка на значение текущего объекта, который выполняет или вызывает функцию.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question6" class="window-form-radio6" var="1">
-                                    <label for="question6">Это объект текущей страницы браузера.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question6" class="window-form-radio6" var="2">
-                                    <label for="question6">Указание на использование конкретной переменной.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                                <div class="form-row">
-                                    <input type="radio" name="question6" class="window-form-radio6" var="3">
-                                    <label for="question6">Указывает браузеру страницу, на которую необходимо перейти.</label>
-                                    <b class="window-form-question-checker"></b>
-                                </div>
-                            </div>
-                            <div class="form-block" id="window-form-toggle-buttons">
-                                <p id="window-form-warning"><b style="color:red">Пожалуйста, заполните все вопросы!</b></p>
-                                <div class="form-row">
-                                    <input type="button" value="Предыдуший" class="window-form-button" id="window-form-button-prev">
-                                    <input type="button" value="Следующий" class="window-form-button" id="window-form-button-next">
-                                </div>
-                            </div>
-                        </div>
-                    <input type="button" value="Проверить" class="window-form-button" id="window-form-button-test">
-                    </form>
-                    <div class="window-information" id="window-information-half">
-                        <p>
-                            Каждая группа радиокнопок будет иметь свой класс соответствующий вопросу.
-                            <code>
-                                document.getElementsByClassName(className); // так мы можем найти каждую группу кнопок определенного вопроса
-                            </code>
-                            Проверяем каждую группу на то, что выбран ответ. Если ответ не выбран, тон не проверяя дальше можем вывести пользователю предупреждение.
-                            Когда каждый вопрос будет отмечен, в каждой группе будет сравнен выбранный ответ пользователя и верный ответ.
-                            <code>
-                                if (radioButton.checked) {
-                                    <br>
-                                    if (radioButton.getAttribute("var") == answers[i]) { // набор действий }
-                                    <br>
-                                    else { // набор действий }
-                                    <br>
-                                }
-                            </code>
-                            У каждой кнопки есть аттрибут представляющий её номер.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="window-pop-up-datetime" class="window-pop-up">
-                <div class="window-hader">
-                    <h2 class=window-hader-title>Дата время</h2>
-                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" class="window-hader-cross" fill="black">
-                        <path d="M0 4 L 4 0 L 20 16 L 16 20 L 0 4" />
-                        <path d="M20 4 L 16 0 L 0 16 L 4 20 L 20 4"/>
-                    </svg>
-                </div>
-                <form action="" class="window-form">
-                    <input type="button" value="Посмотреть дату и время" class="window-form-button" id="window-form-button-datetime">
-                </form>
-                <div class="window-information">
-                    <p>
-                        В этом задании нужно сделать всплывающие окно с датой и временем. По нажатию на кнопку, окно станет видимым, и проиграется анимация
-                        после нажатия уже по самому окну, проигрывается анимация исчезновения, и оно закрывается.
-                        <code>
-                            document.getElementById(element).addEventListener("click", function, false); // так мы добавим обработчик события на элемент.
-                        </code>
-                        В самой функции вызываемой обработчиком события будем использовать следующие конструкции.
-                        <code>
-                            event.currentTarget // так мы у объекта события можем взять ссылку на объект на котором это событие было захвачено обработчиком.
-                            <br>
-                            element.animate(keyframes, options); // так объекту можна назначить анимацию и тут же её проиграть.
-                        </code>
-                        Такие параметры мы передадим
-                        <code>
-                            element.animate([{ opacity: 100 },
-                        { opacity: 0 }],
-                        {
-                            duration: 1000,
-                            easing: "linear"
-                        })
-                        </code> в нашем примере.
-                        А для того чтобы после завершения анимации, окно стало снова невидимым, используем следующую конструкцию:
-                        <code>
-                            setTimeout(() => {document.getElementById(elementId).style.display = "none";}, 1000);
-                        </code>
-                    </p>
-                </div>
-            </div>
+            
         </main>
     </body>
     <script src="script/script.js"></script>
